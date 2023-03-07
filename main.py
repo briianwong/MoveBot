@@ -17,14 +17,8 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.command()
 async def move (ctx, initialChannel, moveToChannel):
    # Get the channels
-   # initial_channel = discord.utils.get(bot.channels, id=initial_channel_id)
-   # move_to_channel = discord.utils.get(bot.channels, did=initial_channel_id)
-
-
-   initialChannel = discord.utils.get(ctx.guild.voice_channels, name = "office")
-   #initial_channel_id = discord.VoiceChannel.id
-   moveToChannel = discord.utils.get(ctx.guild.voice_channels, name = "voice1")   
-   #move_to_channel_id = discord.VoiceChannel.id
+   initialChannel = discord.utils.get(ctx.guild.voice_channels, name = str(initialChannel))
+   moveToChannel = discord.utils.get(ctx.guild.voice_channels, name = str(moveToChannel))   
     
 
 
@@ -42,14 +36,11 @@ async def move (ctx, initialChannel, moveToChannel):
          await member.move_to(moveToChannel)
       except discord.Forbidden:
          await ctx.send(f'Trying to move {member} failed')
-      else:
-         await ctx.send(f'Successfully moved {member}')
-
+   
    await ctx.send(f'Moved all members from {initialChannel.mention} to {moveToChannel.mention}')
 
 @bot.event
 async def on_ready():
-   print ("hello world")
    print("ready")
 
 bot.run(TOKEN)
