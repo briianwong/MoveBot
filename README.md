@@ -1,4 +1,4 @@
-MOVEBOT
+MOVEBOT for Discord
 by Brian Wong
 
 What is this:
