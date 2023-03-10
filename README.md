@@ -36,5 +36,4 @@ Example of Team Split / 10-mans:
 
 How to add this to your own server:
 
-Follow this guide: https://www.ionos.com/digitalguide/server/know-how/creating-discord-bot/
-and create a new tokenKey.py file which contains the token key of your bot.
+Follow this guide: https://discordpy.readthedocs.io/en/stable/discord.html. Firstly, create a new tokenKey.py file which contains the token key of your bot and save that into the same folder of main.py . In the OAuth2 tab, under scopes, check 'bot' and 'applications.command'. Under Bot Permissions, check 'Administrator.'  
