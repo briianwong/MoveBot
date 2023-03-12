@@ -10,6 +10,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 # This command moves the entire channel
 @bot.command()
+@commands.has_guild_permissions(move_members=True)
 async def movec (ctx, initialChannel, moveToChannel):
    # Get the channels
    initialChannel = discord.utils.get(ctx.guild.voice_channels, name = str(initialChannel))
@@ -42,6 +43,7 @@ async def movec (ctx, initialChannel, moveToChannel):
 
 # This command moves the specified users
 @bot.command()
+@commands.has_guild_permissions(move_members=True)
 async def moveu (ctx, *args):
    users = []
    for i in args:
@@ -66,7 +68,10 @@ async def moveu (ctx, *args):
    
    await ctx.send(f'Moved members to {moveToChannel.mention}')
 
+
+
 ################ NEW COMMAND ##################
+
 
 
 # This command splits 2 teams into 2 seperate voice channels
@@ -137,6 +142,7 @@ class Menu(discord.ui.View):
     
 
 @bot.command()
+@commands.has_guild_permissions(move_members=True)
 async def ten (ctx, open_channel1, open_channel2):
     view = Menu(bot, open_channel1, open_channel2)
     embed = discord.Embed(
